@@ -117,10 +117,10 @@ const showLocation = async (position) => {
       weatherDetails.classList.add("fadeIn");
 
       var w = window.innerWidth;
-      if (w < 481) {
-        container.style.height = "450px";
-      } else {
-        container.style.height = "390px";
+      if(w < 481){
+        container.style.height = "580px";
+      }else{
+        container.style.height = "690px";
       }
     });
 };
