@@ -156,7 +156,7 @@ body {
     grid-template-columns: repeat(3, 33.3%);
     column-gap: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .weather-details .feelslike,
@@ -241,13 +241,6 @@ body {
 }
 
 
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-    }
-}
-
-
 .footer {
     position: fixed;
     left: 0;
@@ -269,4 +262,13 @@ body {
     font-size: 20px; 
     color:antiquewhite;
     letter-spacing: 2px;
+}
+
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: 580px !important;
+    }
 }
