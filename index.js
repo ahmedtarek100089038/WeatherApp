@@ -110,7 +110,14 @@ const showLocation = async (position) => {
       weatherDetails.style.display = "";
       weatherBox.classList.add("fadeIn");
       weatherDetails.classList.add("fadeIn");
-      container.style.height = "690px";
+      
+
+      var w = window.innerWidth;
+      if(w < 481){
+        container.style.height = "580px";
+      }else{
+        container.style.height = "690px";
+      }
     });
 
   
