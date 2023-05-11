@@ -4,7 +4,6 @@ const weatherBox = document.querySelector(".weather-box");
 const weatherDetails = document.querySelector(".weather-details");
 const error404 = document.querySelector(".not-found");
 
-
 var APIKey = "13a20bff688ee831cb1387d17a612e3a";
 
 var currentLocation = document.getElementById("get-current-loc");
@@ -44,8 +43,9 @@ const showLocation = async (position) => {
   let data = await response.json();
   const currentLoc = data.address.city + "," + data.address.country;
 
-  document.getElementById("searchfield").value = `${data.address.city}, ${data.address.country}`;
-
+  document.getElementById(
+    "searchfield"
+  ).value = `${data.address.city}, ${data.address.country}`;
 
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${currentLoc}&appid=${APIKey}&units=metric`
@@ -53,7 +53,12 @@ const showLocation = async (position) => {
     .then((response) => response.json())
     .then((json) => {
       if (json.cod === "404") {
-        container.style.height = "450px";
+        var w = window.innerWidth;
+        if (w < 481) {
+          container.style.height = "390px";
+        } else {
+          container.style.height = "450px";
+        }
         weatherBox.style.display = "none";
         weatherDetails.style.display = "none";
         error404.style.display = "block";
@@ -110,18 +115,14 @@ const showLocation = async (position) => {
       weatherDetails.style.display = "";
       weatherBox.classList.add("fadeIn");
       weatherDetails.classList.add("fadeIn");
-      
 
       var w = window.innerWidth;
-      if(w < 481){
-        container.style.height = "580px";
-      }else{
-        container.style.height = "690px";
+      if (w < 481) {
+        container.style.height = "450px";
+      } else {
+        container.style.height = "390px";
       }
-      
     });
-
-  
 };
 
 search.addEventListener("click", () => {
@@ -135,7 +136,12 @@ search.addEventListener("click", () => {
     .then((response) => response.json())
     .then((json) => {
       if (json.cod === "404") {
-        container.style.height = "450px";
+        var w = window.innerWidth;
+        if (w < 481) {
+          container.style.height = "390px";
+        } else {
+          container.style.height = "450px";
+        }
         weatherBox.style.display = "none";
         weatherDetails.style.display = "none";
         error404.style.display = "block";
@@ -192,14 +198,12 @@ search.addEventListener("click", () => {
       weatherDetails.style.display = "";
       weatherBox.classList.add("fadeIn");
       weatherDetails.classList.add("fadeIn");
-      
-      
+
       var w = window.innerWidth;
-      if(w < 481){
+      if (w < 481) {
         container.style.height = "580px";
-      }else{
+      } else {
         container.style.height = "690px";
       }
-
     });
 });
